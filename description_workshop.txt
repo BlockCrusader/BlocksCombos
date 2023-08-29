@@ -1,0 +1,48 @@
+[h1]Block's Combo Meters[/h1]
+
+Block's Combo Meters introduces combo mechanics common to various action games into the world of Terraria. With this mod, you can enjoy 2 client-sided combo systems, complete with vanilla-faithful UI and tons of config settings;
+
+[h2]Letter Rank meter:[/h2] 
+Deal damage with sufficient DPS to build your combo and gain letter-based ranks!
+[list]
+    [*]Rankings range from F to S (Or higher via. config!)
+    [*]Your combo gradually drains over time, demanding increasing DPS levels to continue ranking
+    [*]Ranking will scale as you progress since it's DPS based
+    [*]Taking damage will substanially deplete your combo
+    [*]Includes Rank Meter UI that displays your progress towards each rank
+[/list]
+
+[h2]Hit Counter meter:[/h2]
+Counts up each hit you land, but resets if you fail to inflict damage for too long. Simple as that.
+[list]
+    [*]Introducing the 'Combo-Clock': UI that sits behind your hit count and spins to indicate how much time is left in your combo
+    [*]By default, your combo ends after ~3 seconds without landing a hit
+    [*]Your combo will idmediatley end if you take damage
+    [*]When a combo ends, text will appear above your player to show the final hit count.
+[/list]
+
+[h2]Customization:[/h2] 
+As mentioned before, Block's Combo Meters has ALOT of config, including;
+[list]
+    [*]Meter choice: Toggle between the Letter Rank and Hit Counter meters, or use both at once! Meters track performance even when hidden
+    [*]UI positioning: Move the meters around, they default to the left of the minimap
+    [*]Display your way: Both meter type has many different visual styles to pick from!
+    [*]Penalties(?): Adjusted or remove combo penalties related to taking damage
+    [*]Feedback: Both meters come with sound and visual feedback, which can be toggled and customized
+    [*]And More: The majority of the aspects of both meters can be customized in some way!
+[/list]
+
+[h3]Open Source[/h3]
+[list]
+    [*]This mod is open-source on GitHub under the GNU GPLv3 license. Another way to view the source-code is via. tML's in-game extract function
+    [*]You can find the GitHub repository for the mod [url=]right here![/url]
+[/list]
+
+[h3]Final notes/disclaimers:[/h3]
+[list]
+    [*]Combos have no affect on gameplay in terms of combat, only visual effects and audio feedback; if you're looking for a gameplay overhaul, this isn't it.
+    [*]Shoutout to the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2950180796]Terrarian's Style Rank mod, by BlixerCZ[/url], which inspired me to make a combo mod of my own. If you like DMC5 and/or want something more intricate or flashy, definitley check it out!
+    [*]And of course, have fun and happy combo-ing!
+[/list]
+
+[b]Please first read the pinned discussion 'FAQ Thread: Compatibility, Known Issues/Bug Reports, Roadmap & More' if you have any questions![/b]

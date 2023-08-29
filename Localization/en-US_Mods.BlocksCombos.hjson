@@ -1,0 +1,471 @@
+CommonItemtooltip: {
+	MaxCombo: MAX
+	RankFeedback: "{0} Rank"
+	HitFeedback: Combo: {0}
+}
+
+Configs: {
+	Config: {
+		DisplayName: Main Config
+
+		Headers: {
+			HeaderIdentifier: Header Identifier Header
+			HeaderMain1: General
+			HeaderMain2: Meter Settings
+			HeaderMain3: Misc
+		}
+
+		MeterType: {
+			Label: Combo Meter Type
+			Tooltip:
+				'''
+				Decide which style of Combo Meter you want;
+				Letter Rank: Deal damage with sufficient DPS to gain letter-based Ranks.
+				Hit Count: Counts every hit of damage you inflict, but resets if you fail to inflict damage for too long.
+				Disabled: Neither meter will appear.
+				Both: Both meters will appear; be warned that they will overlap if using their default placement.
+				Note that the meters will continue functioning and tracking your performance, even if their visibility is disabled here.
+				'''
+		}
+
+		letterRankSettings: {
+			Label: Letter Rank Meter
+			Tooltip: ""
+		}
+
+		hitCountSettings: {
+			Label: Hit Count Meter
+			Tooltip: ""
+		}
+	}
+
+	LetterRankSettings: {
+		Tooltip: ""
+
+		Headers: {
+			HeaderIdentifier: Header Identifier Header
+			HeaderLetterP: Positioning
+			HeaderLetterM: Mechanics
+			HeaderLetterD: Display
+			HeaderLetterF: Feedback
+		}
+
+		rankDisplacement: {
+			Label: UI displacement
+			Tooltip:
+				'''
+				Nudge the Rank UI's placement by a set amount of pixels; (x,y).
+				Negative numbers move the UI closer to the top left of the screen.
+				Positive numbers move it closer to the bottom right.
+				Defaults to the left of your minimap.
+				Note that extreme values can move the UI off screen!
+				'''
+		}
+
+		rankAltDisplacement: {
+			Label: Override vector displacement
+			Tooltip:
+				'''
+				Toggle between using the Vector-based setting above, and the Integer-based settings below for the purposes of UI displacement.
+				When false, the Vector setting above is used.
+				When true, the Integer settings are used.
+				Use of integers may be preferable to some, since values can be typed in percisely instead of using a slider.
+				Defaults to false.
+				'''
+		}
+
+		rankNudgeX: {
+			Label: Integer-based displacement (X)
+			Tooltip:
+				'''
+				Nudges the Rank UI's horizontal placement by the amount of pixels set here.
+				Negative numbers move the UI closer to the left of the screen.
+				Positive numbers move it closer to the right.
+				0 Defaults to the left of your minimap.
+				Note that extreme values can move the UI off screen!
+				Also note that this config does nothing unless 'Override Vector Displacement' is true.
+				'''
+		}
+
+		rankNudgeY: {
+			Label: Integer-based displacement (Y)
+			Tooltip:
+				'''
+				Nudges the Rank UI's vertical placement by the amount of pixels set here.
+				Negative numbers move the UI closer to the top of the screen.
+				Positive numbers move it closer to the bottom.
+				0 Defaults to the near the top of your minimap.
+				Note that extreme values can move the UI off screen!
+				Also note that this config does nothing unless 'Override Vector Displacement' is true.
+				'''
+		}
+
+		rankRate: {
+			Label: Ranking rate
+			Tooltip:
+				'''
+				Adjusts how hard/easy it is to gain a Rank.
+				Lower numbers result in easier ranking, higher numbers result in harder ranking.
+				Note that each Rank will always be harder to gain than the one before it.
+				Defaults to 1.
+				'''
+		}
+
+		rankDrain: {
+			Label: Drain rate
+			Tooltip:
+				'''
+				Modifies how quickly/slowly your Combo drains over time.
+				Lower numbers result in less drain, higher numbers result in harder drain.
+				This value very loosley correlates to how much of a Rank you'll lose in one second of not contributing to your combo.
+				Note that each Rank will always be drain faster than the one before it.
+				Be warned that high values may make it near-impossible to rank up!
+				Defaults to 0.125.
+				'''
+		}
+
+		maxRank: {
+			Label: Max Rank
+			Tooltip:
+				'''
+				Allows you to enable additional Ranks past the default max of 'S', or reduce the max Rank to 'A'.
+				Rank hierarchy is as follows;
+				'F', 'E', 'D', 'C', 'B', 'A', 'S', 'SS', 'SSS', 'U'
+				'''
+		}
+
+		rankHurtPenalty: {
+			Label: Penalize injury
+			Tooltip:
+				'''
+				Toggles whether or not taking damage will reduce your Combo/Rank.
+				Set to false for no penalty.
+				Defaults to true.
+				'''
+		}
+
+		rankResetPenalty: {
+			Label: Penalty resets Combo
+			Tooltip:
+				'''
+				Makes it so that the injury penalty completley resets your Combo and Rank.
+				When true (active), the 'Penalty severity' setting below has no effect.
+				Defaults to false.
+				'''
+		}
+
+		rankPenalty: {
+			Label: Penalty severity
+			Tooltip:
+				'''
+				Adjusts how large of a Combo/Rank reduction is inflicted by the injurty penalty.
+				This value very loosely correlates to about how much of a Rank(s) you'll lose.
+				Note that this is overriden by the 'Penalty resets Combo' setting above, if it is active.
+				Defaults to 0.5.
+				'''
+		}
+
+		useCustomRanking: {
+			Label: Use Custom Base for Rank thresholds
+			Tooltip:
+				'''
+				Makes calculations for damage thresholds for ranking up utilize a custom 'Base' value, as determined in the 'Custom Base' setting.
+				Each Rank has its own threshold automatically calculated using the Base value, and each Rank requires more damage to be dealt than the last.
+				The Base value becomes the damage required to rank up from 'F' to 'E'.
+				See 'Custom Base' for more details.
+				'''
+		}
+
+		customRankBase: {
+			Label: Custom Base
+			Tooltip:
+				'''
+				Set a custom 'Base' value for the calculation of damage thresholds needed to gain a Rank.
+				Each Rank has its own threshold automatically calculated using this number, and each Rank requires more damage to be dealt than the last.
+				The number set here will become the damage required to rank up from 'F' to 'E'.
+				For reference, below are some of the default, progress-based Bases:
+				Pre-boss: 100
+				Post-Skeletron: 400
+				Hardmode: 750
+				Post Mechs (All) / Fishron: 2200
+				Post Golem / EoL: 3600
+				Post Moon Lord: 7500
+				Formula for damage required per Rank: Base * (1.175 ^ current rank #).
+				Note: This value will only override the default values when 'Use Custom Base for Rank thresholds' is true!
+				'''
+		}
+
+		meterStyle: {
+			Label: Rank Meter display style
+			Tooltip:
+				'''
+				Choose from multiple different visual styles of the border on the Rank Meter display.
+				The Rank Meter refers to the bar below your Rank.
+				The bar will fill to represent your progress towards the next Rank.
+				'''
+		}
+
+		hideMeterBG: {
+			Label: Hide Rank Meter background
+			Tooltip: Allows you to hide the backgound of the Rank Meter display.
+		}
+
+		hideMeter: {
+			Label: Hide Rank Meter
+			Tooltip:
+				'''
+				Allows you to hide the Rank Meter display without also hiding text display.
+				Potentially useful for combining both meters...
+				'''
+		}
+
+		hideLetter: {
+			Label: Hide Rank Letter
+			Tooltip:
+				'''
+				Allows you to hide the text display of your Rank without also hiding the Rank Meter.
+				Potentially useful for combining both meters...
+				'''
+		}
+
+		rankingFeedback: {
+			Label: Ranking feedback
+			Tooltip:
+				'''
+				Toggles if each letter Rank is displayed above your head as you earn it.
+				Some may want to disable this effect to avoid possible confusion amongst Combo numbers, ranking, and damage or restoration (healing/mana) numbers.
+				Note that there is a 1-second delay between each text display, to prevent excessive text.
+				Defaults to false.
+				'''
+		}
+
+		positiveRankFeedback: {
+			Label: Feedback only on Rank up
+			Tooltip:
+				'''
+				Makes it so that text display feedback only occurs upon ranking up, and never upon ranking down.
+				Defaults to true.
+				'''
+		}
+
+		forcedRankFeedback: {
+			Label: Force Ranking feedback display
+			Tooltip:
+				'''
+				Allows the Rank up text display to occur even when the Letter Rank meter style is disabled.
+				Defaults to false.
+				'''
+		}
+
+		rankSFX: {
+			Label: Rank up sfx
+			Tooltip:
+				'''
+				Pick a sound that will play each time you rank up. Or disable this sound feedback.
+				Note that there is a half-second delay before sounds can be played again, to prevent excessive noise.
+				'''
+		}
+
+		demoteSFX: {
+			Label: Demotion sfx
+			Tooltip:
+				'''
+				Pick a sound that will play each time you lose a Rank. Or disable this sound feedback.
+				Note that there is a half-second delay before sounds can be played again, to prevent excessive noise.
+				'''
+		}
+	}
+
+	HitCountSettings: {
+		Tooltip: ""
+
+		Headers: {
+			HeaderIdentifier: Header Identifier Header
+			HeaderClockP: Positioning
+			HeaderClockM: Mechanics
+			HeaderClockD: Display
+			HeaderClockF: Feedback
+			HeaderClockDebug: Debug
+		}
+
+		counterDisplacement: {
+			Label: UI displacement
+			Tooltip:
+				'''
+				Nudge the Counter UI's placement by a set amount of pixels; (x,y).
+				Negative numbers move the UI closer to the top left of the screen.
+				Positive numbers move it closer to the bottom right.
+				(0,0) Defaults to the left of your minimap.
+				Note that extreme values can move the UI off screen!
+				'''
+		}
+
+		counterAltDisplacement: {
+			Label: Override vector displacement
+			Tooltip:
+				'''
+				Toggle between using the Vector-based setting above, and the Integer-based settings below for the purposes of UI displacement.
+				When false, the Vector setting above is used.
+				When true, the Integer settings are used.
+				Use of integers may be preferable to some, since values can be typed in percisely instead of using a slider.
+				Defaults to false.
+				'''
+		}
+
+		counterNudgeX: {
+			Label: Integer-based displacement (X)
+			Tooltip:
+				'''
+				Nudges the Counter UI's horizontal placement by the amount of pixels set here.
+				Negative numbers move the UI closer to the left of the screen.
+				Positive numbers move it closer to the right.
+				0 Defaults to the left of your minimap.
+				Note that extreme values can move the UI off screen!
+				Also note that this config does nothing unless 'Override Vector Displacement' is true.
+				'''
+		}
+
+		counterNudgeY: {
+			Label: Integer-based displacement (Y)
+			Tooltip:
+				'''
+				Nudges the Counter UI's vertical placement by the amount of pixels set here.
+				Negative numbers move the UI closer to the top of the screen.
+				Positive numbers move it closer to the bottom.
+				0 Defaults to the near the top of your minimap.
+				Note that extreme values can move the UI off screen!
+				Also note that this config does nothing unless 'Override Vector Displacement' is true.
+				'''
+		}
+
+		clockDuration: {
+			Label: Combo-Clock countdown speed
+			Tooltip:
+				'''
+				Adjust how long it takes for the 'Combo-Clock' to deplete.
+				The Combo-Clock refers to the UI behind/surrounding your hit count.
+				The 'Clock' spins based on how much time is left before your Combo ends due to not landing hits.
+				The slower it spins, the less time there is left.
+				This setting adjusts how much time you get before your Combo ends.
+				Higher numbers grant more time, lower numbers grant less.
+				For reference, the base time is about 3 seconds.
+				'''
+		}
+
+		counterHurtPenalty: {
+			Label: Injury ends combo
+			Tooltip:
+				'''
+				Toggles whether or not taking damage will end an on-going Combo.
+				Set to false for no penalty.
+				Defaults to true.
+				'''
+		}
+
+		clockStyle: {
+			Label: Combo-Clock display style
+			Tooltip: Choose from multiple different visual styles of the 'Combo-Clock' display.
+		}
+
+		clockSpinMult: {
+			Label: Combo-Clock spin speed
+			Tooltip:
+				'''
+				Change how fast the 'Combo-Clock' visually spins.
+				Lower numbers cause a slower max speed, and higher numbers cause a fast max speed.
+				It can also be set to 0 to prevent the Clock from spinning
+				Defaults to 0.2.
+				'''
+		}
+
+		reverseSpin: {
+			Label: Reverse Combo-Clock spin direction
+			Tooltip:
+				'''
+				Decides in what direction the 'Combo-Clock' will spin.
+				Set to true for counterclockwise, and false (default) for clockwise.
+				'''
+		}
+
+		hideClock: {
+			Label: Hide Combo-Clock
+			Tooltip:
+				'''
+				Allows you to hide the 'Combo-Clock' display without also hiding numerical hit count display.
+				Potentially useful for combining both meters...
+				'''
+		}
+
+		hideCounter: {
+			Label: Hide hit count
+			Tooltip:
+				'''
+				Allows you to hide the numerical hit count display without also hiding the 'Combo-Clock'.
+				Potentially useful for combining both meters...
+				'''
+		}
+
+		maxCounterValue: {
+			Label: Maximum Hit Count display value
+			Tooltip:
+				'''
+				When your hit count exceeds the value set here, the hit count display will instead say 'MAX'.
+				Useful for if you don't like how larger numbers are shrunk to fit within the given space.
+				Note that for other purposes the meter will still keep counting your hits, up to a 'true' limit of 2 billion.
+				Defaults to 9999.
+				'''
+		}
+
+		comboHitTotals: {
+			Label: Display hit count on Combo end
+			Tooltip:
+				'''
+				Toggles if the final hit count of a Combo is displayed above your head when said Combo ends.
+				Some may want to disable this effect to avoid possible confusion between Combo numbers, ranking, and damage or restoration (healing/mana) numbers.
+				Defaults to true.
+				'''
+		}
+
+		forcedTotals: {
+			Label: Force hit count on Combo end
+			Tooltip:
+				'''
+				Allows the final hit count display to occur even when the Hit Count meter is disabled.
+				Defaults to true.
+				'''
+		}
+
+		largeComboThreshold: {
+			Label: Large Combo display threshold
+			Tooltip:
+				'''
+				This number determines how many hits a Combo must have to be considered 'large'.
+				'Large' Combos have their final hit counts displayed in bold (Like critical hits) when they end.
+				Any Combo whose hit count is greater than the number set here will be considered 'large'.
+				Set to the maximum value (2 billion) to prevent 'large' Combos.
+				Defaults to 999 (Thus, any Combo with 1000 or more hits counts as 'large').
+				'''
+		}
+
+		largeComboSFX: {
+			Label: Large Combo sfx
+			Tooltip:
+				'''
+				Pick a sound that will play when a final hit count is considered 'large' (See setting above for details). Or disable this sound feedback.
+				Note that there is a half-second delay before sounds can be played again, to prevent excessive noise.
+				'''
+		}
+
+		uiResetDebug: {
+			Label: Combo-Clock re-orienting
+			Tooltip:
+				'''
+				When true, the Combo-Clock's rotation will completley reset whenever it stops moving.
+				Sometimes, the four quarters that comprise the Combo-Clock UI begin to become misaligned after a long time of use (i.e. spinning).
+				Turning this config on prevents/corrects this error.
+				Can be left on, or activated temporarily whenever the error appears.
+				Defaults to false.
+				'''
+		}
+	}
+}
